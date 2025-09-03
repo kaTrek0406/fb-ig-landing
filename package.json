@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "postbuild": "echo > docs/.nojekyll && (cp docs/index.html docs/404.html || copy docs\\index.html docs\\404.html)"
   },
   "dependencies": {
     "react": "^18.2.0",
