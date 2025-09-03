@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom font === */
+@font-face {
+  font-family: "Neue Helvetica Pro 89 Compressed Heavy";
+  src:
+    url("/src/assets/fonts/NeueHelveticaPro-89CompressedHeavy.woff2") format("woff2"),
+    url("/src/assets/fonts/NeueHelveticaPro-89CompressedHeavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Глобальный стек — чтобы всё падало в наш шрифт */
+:root {
+  --display-font: "Neue Helvetica Pro 89 Compressed Heavy",
+    "Helvetica Neue LT Pro 97 Black Condensed",
+    "HelveticaNeue-CondensedBlack",
+    "Arial Narrow",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+/* Применяем ко всей странице */
+@layer base {
+  html {
+    font-family: var(--display-font);
+    font-weight: 900;
+    /* Heavy */
+    font-stretch: condensed;
+    /* на всякий случай для браузеров, где поддерживается */
+  }
+
+  body {
+    letter-spacing: 0.01em;
+  }
+
+  /* немного воздуха для сверхузкого начертания */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0.005em;
+  }
+
+  /* заголовки ещё плотнее, если нужно — можно убрать */
+}
+
+/* Optional: smooth fonts */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility to animate gradient text (used in hero) */
+.animate-gradient-x {
+  background-size: 400% 400%;
+  animation: gradient-x 8s ease infinite;
+}
+
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
